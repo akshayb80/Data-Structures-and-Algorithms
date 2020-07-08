@@ -1,19 +1,16 @@
 # Uses python3
-import sys
+n = int(input())
 
-def get_fibonacci_last_digit_naive(n):
-    if n <= 1:
-        return n
+if n <= 1:
+    print(n)
+    quit()
 
-    previous = 0
-    current  = 1
+def fibo(n):
+    a, b = 0, 1
+    for _ in range(n-1):
+        c = a + b
+        b, a = c, b
+    last = c % 10    
+    print(last)
 
-    for _ in range(n - 1):
-        previous, current = current, previous + current
-
-    return current % 10
-
-if __name__ == '__main__':
-    input = sys.stdin.read()
-    n = int(input)
-    print(get_fibonacci_last_digit_naive(n))
+fibo(n)

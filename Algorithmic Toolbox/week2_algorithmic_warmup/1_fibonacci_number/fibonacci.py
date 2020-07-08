@@ -10,6 +10,7 @@ def fibo(n):
     for _ in range(n-1):
         c = a + b
         b, a = c, b
-    print(c)
+    last = c % 10    
+    print(last)
 
 fibo(n)
