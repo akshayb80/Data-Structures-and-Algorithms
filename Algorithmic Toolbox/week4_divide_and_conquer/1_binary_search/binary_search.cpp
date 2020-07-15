@@ -5,8 +5,15 @@
 using std::vector;
 
 int binary_search(const vector<int> &a, int x) {
-  int left = 0, right = (int)a.size(); 
-  //write your code here
+  long left = 0, right = (int)a.size()-1; 
+  long mid = 0;
+  while (left <= right) {
+    mid = left + ((right - left)/2);
+    if (x == a[mid]) {return mid;}
+    else if (x < a[mid]) {right = mid - 1;}
+    else {left = mid + 1;}
+  }
+  return -1;
 }
 
 int linear_search(const vector<int> &a, int x) {
@@ -30,7 +37,6 @@ int main() {
     std::cin >> b[i];
   }
   for (int i = 0; i < m; ++i) {
-    //replace with the call to binary_search when implemented
-    std::cout << linear_search(a, b[i]) << ' ';
+    std::cout << binary_search(a, b[i]) << ' ';
   }
 }
